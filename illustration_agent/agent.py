@@ -23,7 +23,9 @@ load_dotenv()
 
 # --- SDK Initialization ---
 project_id = os.getenv("GOOGLE_CLOUD_PROJECT")
-location = os.getenv("GOOGLE_CLOUD_LOCATION", "global")
+## Changed by Nov05
+# location = os.getenv("GOOGLE_CLOUD_LOCATION", "global")
+location = os.getenv("REGION", 'global")
 
 graceful_plugin = Graceful429Plugin(
     name="graceful_429_plugin",
