@@ -30,8 +30,6 @@ export ZONE=$(gcloud compute zones list \
   --format="value(name)" \
   | head -n1)
 echo $ZONE
-
-export GOOGLE_CLOUD_LOCATION=global
 ```
 
 <br>   
@@ -44,7 +42,8 @@ cat << EOF > illustration_agent/.env
 GOOGLE_GENAI_USE_VERTEXAI=TRUE
 # GOOGLE_CLOUD_PROJECT=qwiklabs-gcp-02-c909a799ef79
 GOOGLE_CLOUD_PROJECT=$GOOGLE_CLOUD_PROJECT
-GOOGLE_CLOUD_LOCATION=global
+# GOOGLE_CLOUD_LOCATION=global
+GOOGLE_CLOUD_LOCATION=$REGION
 MODEL=gemini-3-flash-preview
 IMAGE_MODEL=gemini-3.1-flash-image-preview
 EOF
