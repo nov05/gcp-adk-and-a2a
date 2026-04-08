@@ -77,10 +77,20 @@ adk deploy cloud_run \
     --a2a \
     illustration_agent
 ```
+```bash
+gcloud run services update illustration-agent \
+  --project=YOUR_GCP_PROJECT_ID \
+  --region=GCP_LOCATION \
+  --set-env-vars="GOOGLE_CLOUD_LOCATION=$REGION"
+```
 
 <br>
 
 ## 👉 Task 4. Enable another ADK agent to call this agent remotely
+
+```bash
+cp illustration_agent/agent.json illustration-agent-card.json
+```
 
 <br>
 
