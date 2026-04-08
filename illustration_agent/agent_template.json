@@ -11,7 +11,7 @@
         "tags": ["illustration", "image generation"]
     }
     ],
-    "url": "https://illustration-agent-274839974206.us-west4.run.app/a2a/illustration_agent",
+    "url": "https://illustration-agent-$PROJECT_NUMBER.$REGION.run.app/a2a/illustration_agent",
     "capabilities": {},
     "version": "1.0.0"
 }
