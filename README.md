@@ -30,9 +30,12 @@ IMAGE_MODEL=gemini-3.1-flash-image-preview
 EOF
 ```
 ```bash
+cd ~/adk_and_a2a
 cp illustration_agent/.env slide_content_agent/.env
+cat slide_content_agent/.env
 ```
 ```bash
+cd ~/adk_and_a2a
 adk web --allow_origins "regex:https://.*\.cloudshell\.dev"
 ```
 
@@ -78,6 +81,7 @@ envsubst < illustration_agent/agent_template.json > illustration_agent/agent.jso
 cat illustration_agent/agent.json
 ```
 ```bash
+cd ~/adk_and_a2a
 yes | adk deploy cloud_run \
     --project $PROJECT_ID \
     --region $REGION \
@@ -86,6 +90,7 @@ yes | adk deploy cloud_run \
     illustration_agent
 ```
 ```bash
+cd ~/adk_and_a2a
 gcloud run services update illustration-agent \
   --project=$PROJECT_ID \
   --region=$REGION \
