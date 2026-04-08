@@ -68,6 +68,16 @@ By supporting each other, we get big things done!
 
 ## 👉 Task 3. Deploy the agent as an A2A Server
 
+```bash
+cd ~/adk_and_a2a
+adk deploy cloud_run \
+    --project $PROJECT_ID \
+    --region $REGION \
+    --service_name illustration-agent \
+    --a2a \
+    illustration_agent
+```
+
 <br>
 
 ## 👉 Task 4. Enable another ADK agent to call this agent remotely
