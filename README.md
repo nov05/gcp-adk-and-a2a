@@ -13,24 +13,6 @@ git clone https://github.com/nov05/gcp-adk-and-a2a.git adk_and_a2a
 export PATH=$PATH:"/home/${USER}/.local/bin"
 python3 -m pip install --upgrade google-adk a2a-sdk google-genai
 ```
-```bash
-export PROJECT_ID=$GOOGLE_CLOUD_PROJECT
-echo $PROJECT_ID
-
-yes | gcloud services enable orgpolicy.googleapis.com --project=$PROJECT_ID --quiet
-export REGION=$(gcloud org-policies describe constraints/gcp.resourceLocations \
-  --project=$PROJECT_ID \
-  --format="value(spec.rules[0].values.allowedValues)" \
-  | grep -oP '(?<=in:)(us|europe|asia)[a-z0-9-]+(?=-locations)' \
-  | head -n 1)
-echo $REGION
-
-export ZONE=$(gcloud compute zones list \
-  --filter="region:($REGION)" \
-  --format="value(name)" \
-  | head -n1)
-echo $ZONE
-```
 
 <br>   
 
@@ -67,8 +49,32 @@ By supporting each other, we get big things done!
 ## 👉 Task 3. Deploy the agent as an A2A Server
 
 ```bash
+export PROJECT_ID=$GOOGLE_CLOUD_PROJECT
+echo $PROJECT_ID
+
+yes | gcloud services enable orgpolicy.googleapis.com --project=$PROJECT_ID --quiet
+export REGION=$(gcloud org-policies describe constraints/gcp.resourceLocations \
+  --project=$PROJECT_ID \
+  --format="value(spec.rules[0].values.allowedValues)" \
+  | grep -oP '(?<=in:)(us|europe|asia)[a-z0-9-]+(?=-locations)' \
+  | head -n 1)
+echo $REGION
+
+export ZONE=$(gcloud compute zones list \
+  --filter="region:($REGION)" \
+  --format="value(name)" \
+  | head -n1)
+echo $ZONE
+
+export PROJECT_NUMBER=$(gcloud projects describe $GOOGLE_CLOUD_PROJECT --format="value(projectNumber)")
+echo $PROJECT_NUMBER
+```
+```bash
 cd ~/adk_and_a2a
 envsubst < illustration_agent/agent_template.json > illustration_agent/agent.json
+cat illustration_agent/agent.json
+```
+```bash
 adk deploy cloud_run \
     --project $PROJECT_ID \
     --region $REGION \
