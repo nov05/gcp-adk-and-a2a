@@ -78,7 +78,7 @@ envsubst < illustration_agent/agent_template.json > illustration_agent/agent.jso
 cat illustration_agent/agent.json
 ```
 ```bash
-adk deploy cloud_run \
+yes | adk deploy cloud_run \
     --project $PROJECT_ID \
     --region $REGION \
     --service_name illustration-agent \
