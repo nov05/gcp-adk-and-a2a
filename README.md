@@ -69,6 +69,7 @@ By supporting each other, we get big things done!
 
 ```bash
 cd ~/adk_and_a2a
+envsubst < illustration_agent/agent_template.json > illustration_agent/agent.json
 adk deploy cloud_run \
     --project $PROJECT_ID \
     --region $REGION \
