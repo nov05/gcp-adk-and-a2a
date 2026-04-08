@@ -47,6 +47,9 @@ Prompt the agent with some text that could be used in a recruitment slide deck:
 By supporting each other, we get big things done!
 ```
 
+<img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/gcp-adk-and-a2a/2026-04-08%2005_48_10-NVIDIA%20GeForce%20Overlay.jpg" width=800>  
+<img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/gcp-adk-and-a2a/generated-images_6a2f64ab-9bbc-4849-81f4-5ccedf77d449.png" width=800>  
+
 <br>
 
 ## 👉 Task 3. Deploy the agent as an A2A Server
@@ -117,6 +120,9 @@ Prompt the agent with an idea for a slide as follows:
 ```text  
 Create content for a slide about our excellent on-the-job training.
 ```
+
+<img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/gcp-adk-and-a2a/2026-04-08%2004_42_13-NVIDIA%20GeForce%20Overlay.jpg" width=800>   
+<img src="https://raw.githubusercontent.com/nov05/pictures/refs/heads/master/gcp-adk-and-a2a/2026-04-08%2004_44_02-NVIDIA%20GeForce%20Overlay.jpg" width=800>   
 
 <br>
 
