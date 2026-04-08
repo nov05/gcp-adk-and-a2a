@@ -99,6 +99,7 @@ gcloud run services update illustration-agent \
 ```bash
 cd ~/adk_and_a2a
 cp illustration_agent/agent.json illustration-agent-card.json
+cat illustration-agent-card.json
 ```
 ```bash
 cd ~/adk_and_a2a
