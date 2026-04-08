@@ -89,7 +89,19 @@ gcloud run services update illustration-agent \
 ## 👉 Task 4. Enable another ADK agent to call this agent remotely
 
 ```bash
+cd ~/adk_and_a2a
 cp illustration_agent/agent.json illustration-agent-card.json
+```
+```bash
+cd ~/adk_and_a2a
+adk web --allow_origins "regex:https://.*\.cloudshell\.dev"
+```
+
+Once again, click the http://127.0.0.1:8000 link in the terminal output to launch the ADK Dev UI.   
+In the ADK Dev UI browser tab, from the Select an agent drop-down on the left, select the `slide_content_agent`.    
+Prompt the agent with an idea for a slide as follows:     
+```text  
+Create content for a slide about our excellent on-the-job training.
 ```
 
 <br>
