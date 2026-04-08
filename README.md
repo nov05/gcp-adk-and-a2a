@@ -35,6 +35,14 @@ cp illustration_agent/.env slide_content_agent/.env
 adk web --allow_origins "regex:https://.*\.cloudshell\.dev"
 ```
 
+To view the web interface in a new tab, click the http://127.0.0.1:8000 link at the bottom of the terminal output.   
+A new browser tab opens with the ADK Dev UI.   
+In the ADK Dev UI tab, from the Select an agent drop-down on the left, select the illustration_agent.   
+Prompt the agent with some text that could be used in a recruitment slide deck:   
+```text
+By supporting each other, we get big things done!
+```
+
 <br>
 
 ## 👉 Task 3. Deploy the agent as an A2A Server
