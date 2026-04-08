@@ -14,18 +14,17 @@ export PATH=$PATH:"/home/${USER}/.local/bin"
 python3 -m pip install --upgrade google-adk a2a-sdk google-genai
 ```
 ```bash
-export PROJECT_ID=$DEVSHELL_PROJECT_ID
+export PROJECT_ID=$GOOGLE_CLOUD_PROJECT
 yes | gcloud services enable orgpolicy.googleapis.com --project=$PROJECT_ID --quiet
-export REGION=$(gcloud org-policies describe
-constraints/gcp.resourceLocations \
---project=$PROJECT_ID \
---format="value(spec.rules[0].values.allowedValues)" \
-| grep -oP '(?<=in:)(us|europe|asia)[a-z0-9-]+(?=-locations)' \
-| head -n 1)
+export REGION=$(gcloud org-policies describe constraints/gcp.resourceLocations \
+  --project=$PROJECT_ID \
+  --format="value(spec.rules[0].values.allowedValues)" \
+  | grep -oP '(?<=in:)(us|europe|asia)[a-z0-9-]+(?=-locations)' \
+  | head -n 1)
 export ZONE=$(gcloud compute zones list \
---filter="region:($REGION)" \
---format="value(name)" \
-| head -n1)
+  --filter="region:($REGION)" \
+  --format="value(name)" \
+  | head -n1)
 echo $ZONE
 ```
 
