@@ -28,6 +28,13 @@ MODEL=gemini-3-flash-preview
 IMAGE_MODEL=gemini-3.1-flash-image-preview
 EOF
 ```
+```bash
+cp illustration_agent/.env slide_content_agent/.env
+```
+```bash
+adk web --allow_origins "regex:https://.*\.cloudshell\.dev"
+```
+
 <br>
 
 ## 👉 Task 3. Deploy the agent as an A2A Server
