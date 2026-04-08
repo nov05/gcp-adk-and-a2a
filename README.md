@@ -68,6 +68,8 @@ echo $ZONE
 
 export PROJECT_NUMBER=$(gcloud projects describe $GOOGLE_CLOUD_PROJECT --format="value(projectNumber)")
 echo $PROJECT_NUMBER
+
+export GOOGLE_CLOUD_LOCATION=global
 ```
 ```bash
 cd ~/adk_and_a2a
@@ -85,8 +87,8 @@ adk deploy cloud_run \
 ```bash
 gcloud run services update illustration-agent \
   --project=YOUR_GCP_PROJECT_ID \
-  --region=GCP_LOCATION \
-  --set-env-vars="GOOGLE_CLOUD_LOCATION=$REGION"
+  --region=$REGION \
+  --set-env-vars="GOOGLE_CLOUD_LOCATION=$GOOGLE_CLOUD_LOCATION"
 ```
 
 <br>
