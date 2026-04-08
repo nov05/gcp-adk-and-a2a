@@ -15,17 +15,23 @@ python3 -m pip install --upgrade google-adk a2a-sdk google-genai
 ```
 ```bash
 export PROJECT_ID=$GOOGLE_CLOUD_PROJECT
+echo $PROJECT_ID
+
 yes | gcloud services enable orgpolicy.googleapis.com --project=$PROJECT_ID --quiet
 export REGION=$(gcloud org-policies describe constraints/gcp.resourceLocations \
   --project=$PROJECT_ID \
   --format="value(spec.rules[0].values.allowedValues)" \
   | grep -oP '(?<=in:)(us|europe|asia)[a-z0-9-]+(?=-locations)' \
   | head -n 1)
+echo $REGION
+
 export ZONE=$(gcloud compute zones list \
   --filter="region:($REGION)" \
   --format="value(name)" \
   | head -n1)
 echo $ZONE
+
+export GOOGLE_CLOUD_LOCATION=global
 ```
 
 <br>   
@@ -37,6 +43,7 @@ cd ~/adk_and_a2a
 cat << EOF > illustration_agent/.env
 GOOGLE_GENAI_USE_VERTEXAI=TRUE
 # GOOGLE_CLOUD_PROJECT=qwiklabs-gcp-02-c909a799ef79
+GOOGLE_CLOUD_PROJECT=$GOOGLE_CLOUD_PROJECT
 GOOGLE_CLOUD_LOCATION=global
 MODEL=gemini-3-flash-preview
 IMAGE_MODEL=gemini-3.1-flash-image-preview
